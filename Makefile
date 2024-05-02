@@ -6,18 +6,11 @@ MLX_PATH = ./lib/minilibx/minilibx-linux
 LIBFT = -L$(LIBFT_PATH) -lft
 MLX = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm -lbsd
 
-# SRC = so_long.c get_next_line.c get_next_line_utils.c map.c
 SRC = mapa.c
 OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
 #macOS	gcc $(OBJS) -o so_long -lmlx -framework OpenGL -framework AppKit
-# /*LINUX*/	gcc $(OBJS) -o so_long -lmlx -lXext -lX11
-
-# all:
-# 	@echo LIBFT PATH: $(LIBFT_PATH)
-# 	@echo MLX PATH: $(MLX_PATH)
-# 	gcc $(OBJS) -o $(NAME) $(CFLAGS) $(LIBS)
 
 $(NAME): $(OBJS)
 	make -C ./lib/libft
@@ -28,10 +21,12 @@ $(OBJS): %.o : %.c
 
 clean:
 	make -C ./lib/libft clean
+	make -C ./lib/minilibx/minilibx-linux
 	rm -f $(OBJ)
 
 fclean: clean
 	make -C ./lib/libft fclean
+	make -C ./lib/minilibx/minilibx-linux
 	rm -f $(NAME)
 
 re: fclean all

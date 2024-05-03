@@ -1,4 +1,4 @@
-NAME = test_mlx
+NAME = boom
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I./lib/minilibx/minilibx-linux -I./lib/libft
 LIBFT_PATH = ./lib/libft

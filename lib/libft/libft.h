@@ -6,7 +6,7 @@
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:44:03 by moni              #+#    #+#             */
-/*   Updated: 2024/05/02 15:02:28 by moni             ###   ########.fr       */
+/*   Updated: 2024/05/03 12:25:35 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
+# include <stdbool.h>
 
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nb, size_t size);
@@ -44,6 +45,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+bool	ft_memcmpext(const void *s1, char *extension);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);

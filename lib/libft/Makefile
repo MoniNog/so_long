@@ -1,6 +1,6 @@
+NAME = libft
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
 SRC_DIR = src/
 OBJ_DIR = obj/
 
@@ -22,7 +22,7 @@ SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_printf.c        ft_striteri.c        \
 		ft_strjoin.c       ft_putnbr.c\
 		ft_putchar.c       ft_strlcat.c\
-		ft_putchar_fd.c    ft_strlcpy.c
+		ft_putchar_fd.c    ft_strlcpy.c ft_memcmpext.c
 
 
 # OBJS = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)

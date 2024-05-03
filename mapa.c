@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include "so_long.h"
 
 #define MAX_WIDTH 100
 
@@ -11,13 +12,6 @@ typedef struct s_list {
 	char 			*line;
 	struct s_list 	*next;
 }	t_list;
-
-//int	check_map(int fd)
-// {
-// 	if (!fd)
-// 		printf("Error\nMap vide");
-// 	return(0);
-// }
 
 t_list	*create_new_pearl(void *line_text)
 {
@@ -61,17 +55,28 @@ t_list *string_lines_to_necklace(char *filename)
 	char	*line;
 	int		fd;
 	t_list	*pearl;
+	t_game	game;
+	int		len;
 
 	necklace = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error opening file");
+		ft_printf("Error opening file\n");
 		return NULL;
 	}
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
-		printf("line : %s", line);
+		game.line = malloc(ft_strlen(line) + 1);
+		if (!game.line)
+		{
+			free_necklace(necklace);
+			close(fd);
+			return (NULL);
+		}
+		len = ft_strlen(line);
+		ft_strlcpy(game.line, line, len + 1);
 		pearl = create_new_pearl(line);
 		if (!pearl)
 		{
@@ -80,6 +85,7 @@ t_list *string_lines_to_necklace(char *filename)
 			return NULL;
 		}
 		attach_pearl_at_end(&necklace, pearl);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return necklace;
@@ -91,14 +97,19 @@ int main(int argc, char **argv)
 	t_list	*necklace;
 	
 	necklace = string_lines_to_necklace(argv[1]);
-	if (argc != 2)
+	if (argc < 2)
+	{
+		ft_printf("Error\nNo argument\n");
+		return EXIT_FAILURE;
+	}
+	if (argc > 2)
 	{
 		ft_printf("Error\nToo much arguments\n");
 		return EXIT_FAILURE;
 	}
 	if (!necklace)
 	{
-		ft_printf("Error\nMap empty\n");
+		ft_printf("Error\nNo data loaded from file\n");
 		return EXIT_FAILURE;
 	}
 	current = necklace;

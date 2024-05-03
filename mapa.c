@@ -1,6 +1,10 @@
 #include "get_next_line.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+
 #define MAX_WIDTH 100
 
 typedef struct s_list {
@@ -67,6 +71,7 @@ t_list *string_lines_to_necklace(char *filename)
 	}
 	while ((line = get_next_line(fd)))
 	{
+		printf("line : %s", line);
 		pearl = create_new_pearl(line);
 		if (!pearl)
 		{

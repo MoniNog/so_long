@@ -22,7 +22,7 @@ $(OBJS): %.o : %.c
 clean:
 	make -C ./lib/libft clean
 	make -C ./lib/minilibx/minilibx-linux
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	make -C ./lib/libft fclean

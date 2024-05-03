@@ -17,7 +17,7 @@ SRC = ft_atoi.c ft_putendl_fd.c ft_strlen.c ft_bzero.c \
 		ft_memchr.c        ft_split.c           ft_toupper.c\
 		ft_memcmp.c        ft_strchr.c          get_next_line.c\
 		ft_memcpy.c        ft_strcmp.c         \
-		ft_memmove.c       ft_strcpy.c          get_next_line_utils.c\
+		ft_memmove.c       ft_strcpy.c          \
 		ft_memset.c        ft_strdup.c          \
 		ft_printf.c        ft_striteri.c        \
 		ft_strjoin.c       ft_putnbr.c\

@@ -5,24 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moni <moni@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 17:23:59 by prossi            #+#    #+#             */
-/*   Updated: 2024/05/02 18:17:37 by moni             ###   ########.fr       */
+/*   Created: 2024/03/21 09:21:16 by moni              #+#    #+#             */
+/*   Updated: 2024/05/02 15:01:17 by moni             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <fcntl.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
+# include "libft.h"
 
-//#include <stdlib.h> and <unistd.h> for *malloc(), free(), & read()*.
-
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
-// int		ft_strlen(const char *str);
-// char	*ft_strchr(const char *s, int i);
-// char	*ft_strdup(const char *s);
-// char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_next_line(int fd);
+char	*remove_line(char *line);
+char	*extract_line(char *line);
+char	*read_line(int fd, char *line);
+size_t	ft_strlen(const char *s);
+// char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr_newline(const char *s);
 
 #endif
